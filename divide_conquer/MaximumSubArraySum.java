@@ -55,3 +55,34 @@ public class MaximumSubArraySum {
         return Math.max((leftSum + rightSum - a[m]), (Math.max(leftSum, rightSum)));
     }
 }
+
+/*
+ * Maximum Subarray Sum using Divide and Conquer
+ * medium
+ * Time Limit: 2 sec
+ * Memory Limit: 128000 kB
+ * Problem Statement
+ * Given an integer array, find the maximum subarray sum among all subarrays
+ * using divide and conquer (DnC) technique.
+ * 
+ * Time complexity of the algorithm should be O(nlogn).
+ * Input
+ * First line contains a single integer N, denoting the size of array.
+ * Second line contains N space separated integers.
+ * 
+ * Constraints :
+ * 1 <= N <= 10^5
+ * -10^9 <= arr[i] <= 10^9
+ * Output
+ * A single integer denoting the maximum sum of subarray.
+ * Example
+ * Input:
+ * 7
+ * 2 -4 1 9 -6 7 -3
+ * 
+ * Output:
+ * 11
+ * 
+ * Explanation :
+ * [1, 9, -6, 7 ] gives maximum sum.
+ */
