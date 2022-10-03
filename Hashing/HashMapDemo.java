@@ -3,7 +3,7 @@ package Hashing;
 import java.util.*;
 import java.util.Iterator;
 
-public class HashingDemo {
+public class HashMapDemo {
     public static void main(String[] args) {
         HashMap<Integer, String> ht = new HashMap<Integer, String>();
         ht.put(1, "L");
