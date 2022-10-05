@@ -1,4 +1,4 @@
-package divide_conquer;
+package DivideConquer;
 
 public class EfficientPowerFunction {
 
