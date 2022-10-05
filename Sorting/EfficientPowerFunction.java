@@ -1,4 +1,4 @@
-package DivideConquer;
+package Sorting;
 
 public class EfficientPowerFunction {
 
