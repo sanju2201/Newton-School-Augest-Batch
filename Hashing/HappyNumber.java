@@ -1,0 +1,75 @@
+package Hashing;
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class HappyNumber {
+    // Function for Change Number
+    public static int changeNumber(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int r = n % 10;
+            sum = sum + r * r;
+            n = n / 10;
+        }
+        return sum;
+    }
+
+    // Funtion for checking Happy Number
+    public static void checkHappy(int n) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        while (n != 1 && !map.containsKey(n)) {
+            map.put(n, 1);
+            n = changeNumber(n);
+        }
+        if (n == 1) {
+            System.out.print(true);
+        } else {
+            System.out.print(false);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        checkHappy(n);
+    }
+}
+
+/*
+ * Happy Number
+ * easy
+ * Time Limit: 2 sec
+ * Memory Limit: 128000 kB
+ * Problem Statement
+ * Write an algorithm to determine if a number n is happy. A happy number is a
+ * number defined by the following process:
+ * Starting with any positive integer, replace the number by the sum of the
+ * squares of its digits.
+ * Repeat the process until the number equals 1 (where it will stay), or it
+ * loops endlessly in a cycle which does not include 1.
+ * Those numbers for which this process ends in 1 are happy.
+ * Return true if n is a happy number, and false if not.
+ * Input
+ * The first line of the input contains the number n.
+ * 
+ * Constraints
+ * 1 <= n <= 231-1
+ * Output
+ * Print true if it's a happy number otherwise false.
+ * Example
+ * Sample Input
+ * 19
+ * 
+ * Sample Output
+ * true
+ * 
+ * Explanation
+ * 12 + 92 = 82
+ * 8 2 + 22 = 68
+ * 62 + 82 = 100
+ * 12 + 02 + 02 = 1
+ */
