@@ -7,13 +7,14 @@ public class SecondHigh {
 
         for (int i = 0; i < a.length; i++) {
             if (a[i] >= high) {
-                sec=high;
+                sec = high;
                 high = a[i];
-            // } else {
-            //     sec = a[i];
-            // }
+                // } else {
+                // sec = a[i];
+                // }
+            }
+            System.out.println(sec);
         }
-        System.out.println(sec);
-    }
 
+    }
 }
