@@ -7,7 +7,7 @@ import java.util.*; // contains Collections framework
 // you can add inner classes if needed
 class HappyNumber {
     // Function for Change Number
-    public static int changeNumber(int n) {
+    public static int sumOfSquareOfDigit(int n) {
         int sum = 0;
         while (n > 0) {
             int r = n % 10;
@@ -22,7 +22,7 @@ class HappyNumber {
         HashMap<Integer, Integer> map = new HashMap<>();
         while (n != 1 && !map.containsKey(n)) {
             map.put(n, 1);
-            n = changeNumber(n);
+            n = sumOfSquareOfDigit(n);
         }
         if (n == 1) {
             System.out.print(true);
