@@ -2,7 +2,7 @@ package MockInterview.DSABasicMock1;
 
 import java.util.*;
 
-public class Que2 {
+public class Que03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a[] = { 2, 9, 7, 9, 7, 9 };
