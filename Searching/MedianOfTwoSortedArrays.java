@@ -6,58 +6,74 @@ import java.io.*;
 
 public class MedianOfTwoSortedArrays {
 
-    public static int Solution(int[] arr) {
-        int n = arr.length;
+    static double median(int arr1[], int arr2[], int m, int n) {
+        if (m > n)
+            return median(arr2, arr1, n, m);// ensuring that binary search happens on minimum size array
 
-        // If length of array is even
-        if (n % 2 == 0) {
-            int z = n / 2;
-            int e = arr[z];
-            int q = arr[z - 1];
+        int low = 0, high = m, medianPos = ((m + n) + 1) / 2;
+        while (low <= high) {
+            int cut1 = (low + high) >> 1;
+            int cut2 = medianPos - cut1;
 
-            int ans = (e + q) / 2;
-            return ans;
+            int l1 = (cut1 == 0) ? Integer.MIN_VALUE : arr1[cut1 - 1];
+            int l2 = (cut2 == 0) ? Integer.MIN_VALUE : arr2[cut2 - 1];
+            int r1 = (cut1 == m) ? Integer.MAX_VALUE : arr1[cut1];
+            int r2 = (cut2 == n) ? Integer.MAX_VALUE : arr2[cut2];
+
+            if (l1 <= r2 && l2 <= r1) {
+                if ((m + n) % 2 != 0)
+                    return Math.max(l1, l2);
+                else
+                    return (Math.max(l1, l2) + Math.min(r1, r2)) / 2.0;
+            } else if (l1 > r2)
+                high = cut1 - 1;
+            else
+                low = cut1 + 1;
         }
-
-        // If length if array is odd
-        else {
-            int z = Math.round(n / 2);
-            return arr[z];
-        }
+        return 0.0;
     }
 
-    // Driver Code
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("n");
-        int i = sc.nextInt();
-        System.out.println("m");
-        int j = sc.nextInt();
-
-        // TODO Auto-generated method stub
-        int[] arr1 = new int[i];
-        int[] arr2 = new int[j];
-        System.out.println("NE");
-
-        for (int n = 0; n < i; n++) {
-            arr1[n] = sc.nextInt();
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        int arr1[] = new int[m];
+        int arr2[] = new int[n];
+        for (int i = 0; i < m; i++) {
+            arr1[i] = sc.nextInt();
         }
-        System.out.println("ME");
-
-        for (int n = 0; n < i; n++) {
-            arr2[n] = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            arr2[i] = sc.nextInt();
         }
-        int[] arr3 = new int[i + j];
 
-        // Merge two array into one array
-        System.arraycopy(arr1, 0, arr3, 0, i);
-        System.arraycopy(arr2, 0, arr3, i, j);
+        System.out.printf("%.2f", median(arr1, arr2, m, n));
 
-        // Sort the merged array
-        Arrays.sort(arr3);
-
-        // calling the method
-        System.out.print(Solution(arr3));
     }
 }
-// String.format("%.2f",
+/*
+ * Median of Two sorted Arrays
+ * medium
+ * Time Limit: 2 sec
+ * Memory Limit: 128000 kB
+ * Problem Statement
+ * Given two sorted arrays A and B of size n and m respectively, return the
+ * median of the two sorted arrays.
+ * The overall run time complexity should be O(log (m+n))
+ * Input
+ * First line of input contains n, m the length of array A and B.
+ * Next two lines contains input of array A and B.
+ * 
+ * Constraints
+ * 1 <= n, m <= 1000
+ * -1e6 <= A[i], B[i] <= 1e6
+ * Output
+ * Print the median of two sorted arrays upto two decimal places.
+ * Example
+ * Sample Input :
+ * 2 1
+ * 1 3
+ * 2
+ * 
+ * Sample Output :
+ * 2.00
+ */
