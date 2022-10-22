@@ -1,7 +1,7 @@
 package Hashing;
 
 import java.util.Scanner;
-import java.util.HashMap;
+import java.util.*;
 
 public class PrintSingleOccuringDigit {
     public static void main(String[] args) {
@@ -27,5 +27,10 @@ public class PrintSingleOccuringDigit {
                 System.out.println(x + " ");
             }
         }
+
+        List<Integer> list = new ArrayList<Integer>(map.keySet());
+        Collections.sort(list, (b, c) -> {
+            return ((map.get(b) == map.get(c))) ? b - c : (map.get(b) - map.get(c));
+        });
     }
 }
