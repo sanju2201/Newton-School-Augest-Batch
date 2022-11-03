@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Mock31 {
     public static void main(String[] args) {
-        int a[] = { 2, 1, 2, 3, 3, 4, 4 };
+        int a[] = { 3, 2, 1, 2, 3, 3, 4, 4, 4 };
         int n = a.length;
 
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -16,8 +16,8 @@ public class Mock31 {
             }
         }
 
-        for (int x : map.keySet()) {
-            System.out.println(map.get(x));
+        for (int key : map.keySet()) {
+            System.out.println(key + " : " + map.get(key));
         }
 
     }
