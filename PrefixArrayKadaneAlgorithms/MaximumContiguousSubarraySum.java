@@ -6,7 +6,7 @@ import java.util.*; // contains Collections framework
 // don't change the name of this class
 // you can add inner classes if needed
 class MaximumContiguousSubarraySum {
-    {
+
     // Maximum Contiguous Subarray Sum Method
     public static void maxPossSubSum(int[] a, int n) {
         long maxCountSum = -10000000;
